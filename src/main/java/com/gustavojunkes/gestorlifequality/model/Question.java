@@ -19,6 +19,8 @@ public class Question {
 
     private Double score;
 
+    public Question(){}
+
     public Long getId() {
         return id;
     }
