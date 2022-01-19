@@ -11,7 +11,7 @@ import java.util.List;
 public class DtoConvert {
 
     public DefaultUserDto toDefaultUserDto(User user){
-        DefaultUserDto dto = new DefaultUserDto(user.getName(), user.getEmail());
+        DefaultUserDto dto = new DefaultUserDto(user.getId(), user.getName(), user.getEmail());
         return dto;
     }
 
@@ -21,7 +21,7 @@ public class DtoConvert {
     }
 
     public User defaultDtoToUserEntity(DefaultUserDto dto){
-        User user = new User(dto.name, dto.email);
+        User user = new User(dto.id, dto.name, dto.email);
         return user;
     }
 
