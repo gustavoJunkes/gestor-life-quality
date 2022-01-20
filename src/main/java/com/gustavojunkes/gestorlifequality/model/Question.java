@@ -19,6 +19,12 @@ public class Question {
 
     private Double score;
 
+    public Question(Long id, String tittle, Double score){
+        this.id = id;
+        this.tittle = tittle;
+        this.score = score;
+    }
+
     public Question(){}
 
     public Long getId() {
