@@ -13,11 +13,13 @@ public class DefaultAvaliationDto {
     public Double score;
     public User user;
     public String tittle;
+    public String description;
     public LocalDate date;
     public List<AvaliationTheme> avaliationThemes;
 
-    public DefaultAvaliationDto(Long id, Double score, String tittle, User user, LocalDate date, List<AvaliationTheme> avaliationThemes){
+    public DefaultAvaliationDto(Long id, Double score, String tittle, String description, User user, LocalDate date, List<AvaliationTheme> avaliationThemes){
         this.tittle = tittle;
+        this.description = description;
         this.id = id;
         this.score = score;
         this.date = date;

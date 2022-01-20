@@ -18,6 +18,8 @@ public class Avaliation {
 
     private String tittle;
 
+    private String description;
+
     private LocalDate date;
 
     @ManyToOne
@@ -33,15 +35,24 @@ public class Avaliation {
         this.user = user;
     }
 
-    public Avaliation(Double score, String tittle, User user, LocalDate date, List<AvaliationTheme>avaliationThemes){
+    public Avaliation(Double score, String tittle, String description, User user, LocalDate date, List<AvaliationTheme>avaliationThemes){
         this.tittle = tittle;
         this.date = date;
         this.score = score;
         this.user = user;
         this.avaliationThemes = avaliationThemes;
+        this.description = description;
     }
 
     public Avaliation(){}
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Long getId() {
         return id;

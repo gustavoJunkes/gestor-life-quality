@@ -16,6 +16,9 @@ public class AvaliationTheme {
     @NotNull
     private String themeName;
 
+    private String description;
+
+
     @ManyToMany
     private List<Question> questions;
 
@@ -23,14 +26,24 @@ public class AvaliationTheme {
         this.themeName = themeName;
     }
 
-    public AvaliationTheme(Long id, String themeName, Double score, List<Question>questions){
+    public AvaliationTheme(Long id, String themeName, String description, Double score, List<Question>questions){
         this.id = id;
         this.themeName = themeName;
         this.score = score;
         this.questions = questions;
+        this.description = description;
     }
 
     public AvaliationTheme(){}
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Long getId() {
         return id;

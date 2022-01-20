@@ -17,15 +17,26 @@ public class Question {
     @NotNull
     private String tittle;
 
+    private String description;
+
     private Double score;
 
-    public Question(Long id, String tittle, Double score){
+    public Question(Long id, String tittle, String description, Double score){
         this.id = id;
         this.tittle = tittle;
         this.score = score;
+        this.description = description;
     }
 
     public Question(){}
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Long getId() {
         return id;

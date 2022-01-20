@@ -9,12 +9,14 @@ public class DefaultAvaliationThemeDto {
     public String themeTittle;
     public Double score;
     public List<Question> questions;
+    public String description;
 
-    public DefaultAvaliationThemeDto(Long id, String themeTittle, Double score, List<Question> questions){
+    public DefaultAvaliationThemeDto(Long id, String themeTittle,String description, Double score, List<Question> questions){
         this.id = id;
         this.score = score;
         this.themeTittle = themeTittle;
         this.questions = questions;
+        this.description = description;
     }
 
 }

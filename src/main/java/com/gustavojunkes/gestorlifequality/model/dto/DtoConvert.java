@@ -18,7 +18,7 @@ public class DtoConvert {
     }
 
     public DefaultAvaliationDto toDefaultAvaliationDto(Avaliation avaliation){
-        DefaultAvaliationDto dto = new DefaultAvaliationDto(avaliation.getId(), avaliation.getScore(), avaliation.getTittle(), avaliation.getUser(), avaliation.getDate(), avaliation.getAvaliationThemes());
+        DefaultAvaliationDto dto = new DefaultAvaliationDto(avaliation.getId(), avaliation.getScore(), avaliation.getTittle(), avaliation.getDescription(), avaliation.getUser(), avaliation.getDate(), avaliation.getAvaliationThemes());
         return dto;
     }
 
@@ -28,7 +28,7 @@ public class DtoConvert {
     }
 
     public Avaliation defaultDtoToAvaliationEntity(DefaultAvaliationDto dto){
-        Avaliation avaliation = new Avaliation(dto.score, dto.tittle, dto.user, dto.date, dto.avaliationThemes);
+        Avaliation avaliation = new Avaliation(dto.score, dto.tittle, dto.description, dto.user, dto.date, dto.avaliationThemes);
         return avaliation;
     }
     public List<DefaultUserDto> toDefaultUserDtoList(List<User>users){
@@ -52,12 +52,12 @@ public class DtoConvert {
 //      -=-=--==-==-=-=================-----------------=============================+++++++++=+=+===
 
     public DefaultQuestionDto toDefaultQuestionDto(Question question){
-        DefaultQuestionDto dto = new DefaultQuestionDto(question.getId(), question.getTittle(), question.getScore());
+        DefaultQuestionDto dto = new DefaultQuestionDto(question.getId(), question.getTittle(), question.getDescription(), question.getScore());
         return dto;
     }
 
     public Question defaultDtoToQuestionEntity(DefaultQuestionDto dto){
-        Question question = new Question(dto.id, dto.tittle, dto.score);
+        Question question = new Question(dto.id, dto.tittle, dto.description, dto.score);
         return question;
     }
 
@@ -73,12 +73,12 @@ public class DtoConvert {
 //    -=-=-=--==-=-=-=-=-=--==-=--=+-+=+=+=+=+=
 
     public DefaultAvaliationThemeDto toDefaultAvaliationThemeDto(AvaliationTheme avaliationTheme){
-        DefaultAvaliationThemeDto dto = new DefaultAvaliationThemeDto(avaliationTheme.getId(), avaliationTheme.getThemeName(), avaliationTheme.getScore(), avaliationTheme.getQuestions() );
+        DefaultAvaliationThemeDto dto = new DefaultAvaliationThemeDto(avaliationTheme.getId(), avaliationTheme.getThemeName(),avaliationTheme.getDescription(), avaliationTheme.getScore(), avaliationTheme.getQuestions() );
         return dto;
     }
 
     public AvaliationTheme defaultDtoToAvaliationThemeEntity(DefaultAvaliationThemeDto dto){
-        AvaliationTheme avaliationTheme = new AvaliationTheme(dto.id, dto.themeTittle, dto.score, dto.questions);
+        AvaliationTheme avaliationTheme = new AvaliationTheme(dto.id, dto.themeTittle, dto.description, dto.score, dto.questions);
         return avaliationTheme;
     }
 
