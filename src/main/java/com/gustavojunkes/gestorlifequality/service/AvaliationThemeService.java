@@ -67,13 +67,13 @@ public class AvaliationThemeService {
         return dtoConvert.toDefaultAvaliationThemeDtoList(avaliationThemes);
     }
 
-    public List<DefaultAvaliationThemeDto> getByAvaliation(Long id){
-        Optional<List<AvaliationTheme>> avaliationThemes = repository.findByAvaliation(id);
-
-        if(avaliationThemes.isPresent()){
-            List<DefaultAvaliationThemeDto> dtos = dtoConvert.toDefaultAvaliationThemeDtoList(avaliationThemes.get());
-            return dtos;
-        }else throw new AvaliationThemeNotFoundException("No theme was found");
-    }
+//    public List<DefaultAvaliationThemeDto> getByAvaliation(Long id){
+//        Optional<List<AvaliationTheme>> avaliationThemes = repository.findByAvaliation(id);
+//
+//        if(avaliationThemes.isPresent()){
+//            List<DefaultAvaliationThemeDto> dtos = dtoConvert.toDefaultAvaliationThemeDtoList(avaliationThemes.get());
+//            return dtos;
+//        }else throw new AvaliationThemeNotFoundException("No theme was found");
+//    }
 
 }

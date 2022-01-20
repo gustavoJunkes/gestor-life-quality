@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface AvaliationThemeRepository extends JpaRepository<AvaliationTheme, Long>{
 
-    Optional<List<AvaliationTheme>> findByAvaliation(Long id);
+//    Optional<List<AvaliationTheme>> findByAvaliation(Long id);
 
     //
 //    @Query("select A")
