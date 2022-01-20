@@ -28,7 +28,7 @@ public class DtoConvert {
     }
 
     public Avaliation defaultDtoToAvaliationEntity(DefaultAvaliationDto dto){
-        Avaliation avaliation = new Avaliation(dto.score, dto.user);
+        Avaliation avaliation = new Avaliation(dto.score, dto.tittle, dto.user, dto.date, dto.avaliationThemes);
         return avaliation;
     }
     public List<DefaultUserDto> toDefaultUserDtoList(List<User>users){
