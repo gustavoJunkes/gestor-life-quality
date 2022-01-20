@@ -11,7 +11,7 @@ public class AvaliationTheme {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Float score;
+    private Double score;
 
     @NotNull
     private String themeName;
@@ -23,9 +23,11 @@ public class AvaliationTheme {
         this.themeName = themeName;
     }
 
-    public AvaliationTheme(String themeName, Float score){
+    public AvaliationTheme(Long id, String themeName, Double score, List<Question>questions){
+        this.id = id;
         this.themeName = themeName;
         this.score = score;
+        this.questions = questions;
     }
 
     public AvaliationTheme(){}
@@ -38,11 +40,11 @@ public class AvaliationTheme {
         this.id = id;
     }
 
-    public Float getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(Float score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 

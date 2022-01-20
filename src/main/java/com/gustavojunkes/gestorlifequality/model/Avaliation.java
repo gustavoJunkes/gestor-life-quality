@@ -1,6 +1,8 @@
 package com.gustavojunkes.gestorlifequality.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,6 +15,11 @@ public class Avaliation {
     /*
     * Entender o que isso vira no banco e como reage com as consultas especificas
     * */
+
+    private String tittle;
+
+    private LocalDate date;
+
     @ManyToOne
     private User user;
 
@@ -26,7 +33,9 @@ public class Avaliation {
         this.user = user;
     }
 
-    public Avaliation(Double score, User user, List<AvaliationTheme>avaliationThemes){
+    public Avaliation(Double score, String tittle, User user, LocalDate date, List<AvaliationTheme>avaliationThemes){
+        this.tittle = tittle;
+        this.date = date;
         this.score = score;
         this.user = user;
         this.avaliationThemes = avaliationThemes;
@@ -64,5 +73,21 @@ public class Avaliation {
 
     public void setAvaliationThemes(List<AvaliationTheme> avaliationThemes) {
         this.avaliationThemes = avaliationThemes;
+    }
+
+    public String getTittle() {
+        return tittle;
+    }
+
+    public void setTittle(String tittle) {
+        this.tittle = tittle;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }

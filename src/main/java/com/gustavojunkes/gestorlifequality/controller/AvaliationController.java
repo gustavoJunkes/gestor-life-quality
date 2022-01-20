@@ -25,7 +25,7 @@ public class AvaliationController {
     public ResponseEntity<DefaultAvaliationDto> edit(@RequestBody DefaultAvaliationDto avaliationDto, @RequestParam ("id") Long id){
             return new ResponseEntity<>(avaliationService.edit(avaliationDto, id), HttpStatus.OK);
     }
-
+    
     @DeleteMapping
     public ResponseEntity delete(@RequestParam ("id") Long id){
         avaliationService.delete(id);

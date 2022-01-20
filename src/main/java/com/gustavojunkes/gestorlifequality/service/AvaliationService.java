@@ -1,17 +1,15 @@
 package com.gustavojunkes.gestorlifequality.service;
 
 import com.gustavojunkes.gestorlifequality.exception.AvaliationNotFoundException;
-import com.gustavojunkes.gestorlifequality.exception.UserNotFoundException;
 import com.gustavojunkes.gestorlifequality.model.Avaliation;
-import com.gustavojunkes.gestorlifequality.model.User;
 import com.gustavojunkes.gestorlifequality.model.dto.DefaultAvaliationDto;
-import com.gustavojunkes.gestorlifequality.model.dto.DefaultUserDto;
 import com.gustavojunkes.gestorlifequality.model.dto.DtoConvert;
 import com.gustavojunkes.gestorlifequality.repository.AvaliationRepository;
-import com.gustavojunkes.gestorlifequality.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +27,7 @@ public class AvaliationService {
      * */
     public DefaultAvaliationDto save(DefaultAvaliationDto avaliationDto){
         Avaliation avaliation = dtoConvert.defaultDtoToAvaliationEntity(avaliationDto);
+        avaliation.setDate(LocalDate.now());
         avaliation = (Avaliation) repository.save(avaliation);
 
         return dtoConvert.toDefaultAvaliationDto(avaliation);
