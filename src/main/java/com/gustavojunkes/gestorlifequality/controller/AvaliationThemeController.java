@@ -41,4 +41,9 @@ public class AvaliationThemeController {
     public ResponseEntity<DefaultAvaliationThemeDto> getById(@RequestParam("id") Long id){
         return new ResponseEntity<>(avaliationThemeService.getById(id), HttpStatus.OK);
     }
+
+    @GetMapping
+    public ResponseEntity<List<DefaultAvaliationThemeDto>> getByAvaliationId(@RequestParam Long id){
+        return new ResponseEntity<>(avaliationThemeService.getByAvaliation(id), HttpStatus.OK);
+    }
 }

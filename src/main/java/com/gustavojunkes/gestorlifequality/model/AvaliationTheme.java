@@ -18,6 +18,8 @@ public class AvaliationTheme {
 
     private String description;
 
+    @ManyToMany
+    private List<Avaliation> avaliations;
 
     @ManyToMany
     private List<Question> questions;
