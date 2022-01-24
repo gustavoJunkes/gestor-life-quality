@@ -21,11 +21,14 @@ public class Question {
 
     private Double score;
 
-    public Question(Long id, String tittle, String description, Double score){
+    private Answer answer;
+
+    public Question(Long id, String tittle, String description, Answer answer, Double score){
         this.id = id;
         this.tittle = tittle;
         this.score = score;
         this.description = description;
+        this.answer = answer;
     }
 
     public Question(){}
@@ -60,5 +63,13 @@ public class Question {
 
     public void setScore(Double score) {
         this.score = score;
+    }
+
+    public Answer getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
     }
 }

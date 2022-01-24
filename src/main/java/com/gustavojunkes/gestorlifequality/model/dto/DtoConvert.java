@@ -1,9 +1,6 @@
 package com.gustavojunkes.gestorlifequality.model.dto;
 
-import com.gustavojunkes.gestorlifequality.model.Avaliation;
-import com.gustavojunkes.gestorlifequality.model.AvaliationTheme;
-import com.gustavojunkes.gestorlifequality.model.Question;
-import com.gustavojunkes.gestorlifequality.model.User;
+import com.gustavojunkes.gestorlifequality.model.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -52,12 +49,12 @@ public class DtoConvert {
 //      -=-=--==-==-=-=================-----------------=============================+++++++++=+=+===
 
     public DefaultQuestionDto toDefaultQuestionDto(Question question){
-        DefaultQuestionDto dto = new DefaultQuestionDto(question.getId(), question.getTittle(), question.getDescription(), question.getScore());
+        DefaultQuestionDto dto = new DefaultQuestionDto(question.getId(), question.getTittle(), question.getDescription(), question.getAnswer(), question.getScore());
         return dto;
     }
 
     public Question defaultDtoToQuestionEntity(DefaultQuestionDto dto){
-        Question question = new Question(dto.id, dto.tittle, dto.description, dto.score);
+        Question question = new Question(dto.id, dto.tittle, dto.description, dto.answer, dto.score);
         return question;
     }
 
@@ -91,5 +88,25 @@ public class DtoConvert {
         return avaliationThemesDto;
     }
 
+//    ==-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+    public DefaultAnswerDto toDefaultAnswerDto(Answer answer){
+        DefaultAnswerDto dto = new DefaultAnswerDto(answer.getId(), answer.getDescription(), answer.getIsRight());
+        return dto;
+    }
+
+    public Answer defaultDtoToAnswerntity(DefaultAnswerDto dto){
+        Answer answer = new Answer(dto.id, dto.description, dto.isRight);
+        return answer;
+    }
+
+    public List<DefaultAnswerDto> toDefaultAnswerDtoList(List<Answer> answers){
+        List<DefaultAnswerDto> answersDto = new ArrayList<>();
+        for (Answer answer:
+                answers) {
+            answersDto.add(toDefaultAnswerDto(answer));
+        }
+        return answersDto;
+    }
 
 }
