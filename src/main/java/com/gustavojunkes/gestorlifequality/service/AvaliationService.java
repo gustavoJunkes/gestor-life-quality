@@ -1,7 +1,9 @@
-package com.gustavojunkes.gestorlifequality.service;
+ package com.gustavojunkes.gestorlifequality.service;
 
 import com.gustavojunkes.gestorlifequality.exception.AvaliationNotFoundException;
 import com.gustavojunkes.gestorlifequality.model.Avaliation;
+import com.gustavojunkes.gestorlifequality.model.AvaliationTheme;
+import com.gustavojunkes.gestorlifequality.model.Question;
 import com.gustavojunkes.gestorlifequality.model.dto.DefaultAvaliationDto;
 import com.gustavojunkes.gestorlifequality.model.dto.DtoConvert;
 import com.gustavojunkes.gestorlifequality.repository.AvaliationRepository;
@@ -25,11 +27,21 @@ public class AvaliationService {
     /**
      * MÉTODOS SAVE RETORNANDO OBJECT
      * */
+
+    //idependente de existir ou não, a avaliação é salva commo uma nova de qualquer forma
     public DefaultAvaliationDto save(DefaultAvaliationDto avaliationDto){
+
         Avaliation avaliation = dtoConvert.defaultDtoToAvaliationEntity(avaliationDto);
         avaliation.setDate(LocalDate.now());
-        avaliation = (Avaliation) repository.save(avaliation);
 
+        // pergunta se o numero dessa avaliação bate com o de alguma já cadastrada
+
+//        if (avaliationId == null){
+            avaliation = (Avaliation) repository.save(avaliation);
+//        }else{
+//            //recria essa avaliação como uma nova identica
+//            avaliation = copyAvaliationContent(avaliationId);
+//        }
         return dtoConvert.toDefaultAvaliationDto(avaliation);
     }
 
@@ -65,4 +77,42 @@ public class AvaliationService {
         List<Avaliation>avaliations = repository.findAll();
         return dtoConvert.toDefaultAvaliationDtoList(avaliations);
     }
+
+//    retorna true se a avaliação já existe, seguindo a lógica de negócio implementada, retorna false caso ela não exista ou nunca tenha sido feita.
+    private Long isAnExistingAvaliation(Long controlNumber){
+
+        List<Avaliation> avaliations = repository.findAll();
+
+        for (Avaliation avaliation:
+            avaliations) {
+            if(avaliation.getControlNumber().equals(controlNumber)){
+                return avaliation.getId();
+            }
+        }
+        return null;
+    }
+
+//    private Avaliation copyAvaliationContent(Long id){
+//
+//        Avaliation avaliation = repository.getById(id);
+//
+//        Avaliation copiedAvaliation = new Avaliation(avaliation.getScore(), avaliation.getTittle(), avaliation.getDescription(), avaliation.getUser(), avaliation.getDate(), avaliation.getAvaliationThemes(), avaliation.getControlNumber());
+//        return copiedAvaliation;
+//    }
+
+
+    //Este método transforma todas as respostas das questões de dada avaliação em null
+//    private List<AvaliationTheme> setQuestionsToNull(Avaliation avaliation){
+//
+//        List<AvaliationTheme> avaliationThemes = avaliation.getAvaliationThemes();
+//
+//        for (AvaliationTheme theme:
+//             avaliationThemes) {
+//            for (Question question: theme.getQuestions() ) {
+//                question.setAnswer(null);
+//            }
+//
+//        }'
+//
+//    }
 }

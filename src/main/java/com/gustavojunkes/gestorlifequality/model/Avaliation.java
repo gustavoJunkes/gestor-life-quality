@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Entity
 public class Avaliation {
@@ -30,18 +31,30 @@ public class Avaliation {
     @ManyToMany
     private List<AvaliationTheme> avaliationThemes;
 
+//    Se refere a um numero de controle de avaliações. Se duas avaliações possuem o mesmo controlNumber, então se referem a mesma avaliação porém feita em momentos diferentes
+    private Long controlNumber;
+
     public Avaliation(Double score, User user){
         this.score = score;
         this.user = user;
     }
 
-    public Avaliation(Double score, String tittle, String description, User user, LocalDate date, List<AvaliationTheme>avaliationThemes){
+    public Avaliation(Double score, String tittle, String description, User user, LocalDate date, List<AvaliationTheme>avaliationThemes, Long controlNumber){
+
         this.tittle = tittle;
         this.date = date;
         this.score = score;
         this.user = user;
         this.avaliationThemes = avaliationThemes;
         this.description = description;
+        this.controlNumber = controlNumber;
+        /*
+        * Caso o numero de controle não seja informado na criação da entidade, assume-se que é uma nova criada do zero, não a partir de outra
+        * */
+        if(controlNumber == null){
+            Random random = new Random();
+            this.controlNumber = Long.valueOf(random.nextInt(1000000));
+        }
     }
 
     public Avaliation(){}
@@ -100,5 +113,13 @@ public class Avaliation {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Long getControlNumber() {
+        return controlNumber;
+    }
+
+    public void setControlNumber(Long controlNumber) {
+        this.controlNumber = controlNumber;
     }
 }

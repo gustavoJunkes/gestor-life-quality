@@ -16,8 +16,9 @@ public class DefaultAvaliationDto {
     public String description;
     public LocalDate date;
     public List<AvaliationTheme> avaliationThemes;
+    public Long controlNumber;
 
-    public DefaultAvaliationDto(Long id, Double score, String tittle, String description, User user, LocalDate date, List<AvaliationTheme> avaliationThemes){
+    public DefaultAvaliationDto(Long id, Double score, String tittle, String description, User user, LocalDate date, List<AvaliationTheme> avaliationThemes, Long controlNumber){
         this.tittle = tittle;
         this.description = description;
         this.id = id;
@@ -25,5 +26,6 @@ public class DefaultAvaliationDto {
         this.date = date;
         this.user = user;
         this.avaliationThemes = avaliationThemes;
+        this.controlNumber = controlNumber;
     }
 }

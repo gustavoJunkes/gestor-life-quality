@@ -1,9 +1,6 @@
 package com.gustavojunkes.gestorlifequality.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -21,6 +18,7 @@ public class Question {
 
     private Double score;
 
+    @OneToOne
     private Answer answer;
 
     public Question(Long id, String tittle, String description, Answer answer, Double score){

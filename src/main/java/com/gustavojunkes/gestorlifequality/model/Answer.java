@@ -14,9 +14,9 @@ public class Answer {
 //    reason for the answer be right
     private String description;
 
-    private boolean isRight;
+    private Boolean isRight;
 
-    public Answer(Long id, String description, boolean isRight){
+    public Answer(Long id, String description, Boolean isRight){
         this.id = id;
         this.description = description;
         this.isRight = isRight;
@@ -38,11 +38,11 @@ public class Answer {
         this.description = description;
     }
 
-    public boolean getIsRight() {
+    public Boolean getIsRight() {
         return isRight;
     }
 
-    public void setIsRight(boolean isRight) {
+    public void setIsRight(Boolean isRight) {
         this.isRight = isRight;
     }
 }

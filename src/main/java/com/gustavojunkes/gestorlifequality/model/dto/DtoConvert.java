@@ -15,7 +15,7 @@ public class DtoConvert {
     }
 
     public DefaultAvaliationDto toDefaultAvaliationDto(Avaliation avaliation){
-        DefaultAvaliationDto dto = new DefaultAvaliationDto(avaliation.getId(), avaliation.getScore(), avaliation.getTittle(), avaliation.getDescription(), avaliation.getUser(), avaliation.getDate(), avaliation.getAvaliationThemes());
+        DefaultAvaliationDto dto = new DefaultAvaliationDto(avaliation.getId(), avaliation.getScore(), avaliation.getTittle(), avaliation.getDescription(), avaliation.getUser(), avaliation.getDate(), avaliation.getAvaliationThemes(), avaliation.getControlNumber());
         return dto;
     }
 
@@ -25,7 +25,7 @@ public class DtoConvert {
     }
 
     public Avaliation defaultDtoToAvaliationEntity(DefaultAvaliationDto dto){
-        Avaliation avaliation = new Avaliation(dto.score, dto.tittle, dto.description, dto.user, dto.date, dto.avaliationThemes);
+        Avaliation avaliation = new Avaliation(dto.score, dto.tittle, dto.description, dto.user, dto.date, dto.avaliationThemes, dto.controlNumber);
         return avaliation;
     }
     public List<DefaultUserDto> toDefaultUserDtoList(List<User>users){
